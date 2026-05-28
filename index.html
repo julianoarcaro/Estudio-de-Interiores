@@ -1,493 +1,516 @@
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Estudio Juliano Arcaro — Formulário de Projeto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #0a0a0a;
+  min-height: 100vh;
+  padding: 2.5rem 1rem 4rem;
+  color: #f0ede6;
+}
 
-  .nb-wrap {
-    font-family: 'DM Sans', sans-serif;
-    background: #0a0a0a;
-    min-height: 100vh;
-    padding: 2.5rem 1rem;
-    color: #f0ede6;
-  }
+.nb-inner { max-width: 640px; margin: 0 auto; }
 
-  .nb-inner { max-width: 640px; margin: 0 auto; }
+.nb-header { text-align: center; margin-bottom: 2.5rem; }
 
-  .nb-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-  }
+.nb-logo {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #b5925a;
+  margin-bottom: 0.75rem;
+}
 
-  .nb-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #b5925a;
-    margin-bottom: 0.75rem;
-  }
+.nb-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #f0ede6;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
 
-  .nb-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: #f0ede6;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
+.nb-subtitle {
+  font-size: 13px;
+  color: #7a7168;
+  line-height: 1.6;
+}
 
-  .nb-subtitle {
-    font-size: 13px;
-    color: #7a7168;
-    line-height: 1.6;
-  }
+.nb-divider {
+  width: 40px;
+  height: 1px;
+  background: #b5925a;
+  margin: 1.25rem auto;
+}
 
-  .nb-divider {
-    width: 40px;
-    height: 1px;
-    background: #b5925a;
-    margin: 1.25rem auto;
-  }
+.nb-card {
+  background: #111111;
+  border: 0.5px solid #2a2820;
+  border-radius: 16px;
+  padding: 1.75rem;
+  margin-bottom: 1rem;
+}
 
-  .nb-card {
-    background: #111111;
-    border: 0.5px solid #2a2820;
-    border-radius: 16px;
-    padding: 1.75rem;
-    margin-bottom: 1rem;
-  }
+.nb-section-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b5925a;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-  .nb-section-label {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #b5925a;
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+.nb-section-label::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: #2a2820;
+}
 
-  .nb-section-label::after {
-    content: '';
-    flex: 1;
-    height: 0.5px;
-    background: #2a2820;
-  }
+.nb-field { margin-bottom: 1.25rem; }
+.nb-field:last-child { margin-bottom: 0; }
 
-  .nb-field { margin-bottom: 1.25rem; }
-  .nb-field:last-child { margin-bottom: 0; }
+.nb-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #a09888;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
 
-  .nb-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 500;
-    color: #a09888;
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-  }
+.nb-label span { color: #b5925a; margin-left: 2px; }
 
-  .nb-label span {
-    color: #b5925a;
-    margin-left: 2px;
-  }
+.nb-input {
+  width: 100%;
+  background: #0a0a0a;
+  border: 0.5px solid #2a2820;
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #f0ede6;
+  outline: none;
+  transition: border-color 0.2s;
+}
 
-  .nb-input {
-    width: 100%;
-    background: #0a0a0a;
-    border: 0.5px solid #2a2820;
-    border-radius: 8px;
-    padding: 11px 14px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    color: #f0ede6;
-    outline: none;
-    transition: border-color 0.2s;
-  }
+.nb-input:focus { border-color: #b5925a; }
+.nb-input::placeholder { color: #3d3a33; }
 
-  .nb-input:focus { border-color: #b5925a; }
-  .nb-input::placeholder { color: #3d3a33; }
+select.nb-input { cursor: pointer; appearance: none; }
 
-  select.nb-input { cursor: pointer; appearance: none; }
+textarea.nb-input { resize: vertical; min-height: 90px; line-height: 1.5; }
 
-  textarea.nb-input { resize: vertical; min-height: 90px; line-height: 1.5; }
+/* ── UPLOAD ZONE — sem onclick no container ── */
+.nb-upload-label {
+  display: block;
+  border: 1px dashed #3d3a33;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: #0a0a0a;
+  position: relative;
+}
 
-  .nb-upload-zone {
-    border: 0.5px dashed #3d3a33;
-    border-radius: 10px;
-    padding: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    position: relative;
-    background: #0a0a0a;
-  }
+.nb-upload-label:hover { border-color: #b5925a; background: #0f0e0b; }
+.nb-upload-label.has-file { border-color: #b5925a; border-style: solid; }
 
-  .nb-upload-zone:hover { border-color: #b5925a; background: #0f0e0b; }
-  .nb-upload-zone.has-file { border-color: #b5925a; border-style: solid; }
+/* Input escondido mas funcional — não usar display:none nem opacity:0 */
+.nb-upload-label input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
 
-  .nb-upload-zone input[type=file] {
-    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
-  }
+.nb-upload-icon {
+  font-size: 22px;
+  color: #3d3a33;
+  margin-bottom: 8px;
+  display: block;
+  transition: color 0.2s;
+  pointer-events: none;
+}
 
-  .nb-upload-icon {
-    font-size: 22px;
-    color: #3d3a33;
-    margin-bottom: 8px;
-    display: block;
-    transition: color 0.2s;
-  }
+.nb-upload-label:hover .nb-upload-icon,
+.nb-upload-label.has-file .nb-upload-icon { color: #b5925a; }
 
-  .nb-upload-zone:hover .nb-upload-icon,
-  .nb-upload-zone.has-file .nb-upload-icon { color: #b5925a; }
+.nb-upload-text {
+  font-size: 13px;
+  color: #5a5650;
+  line-height: 1.5;
+  pointer-events: none;
+}
 
-  .nb-upload-text {
-    font-size: 13px;
-    color: #5a5650;
-    line-height: 1.5;
-  }
+.nb-upload-text strong { color: #a09888; font-weight: 500; }
 
-  .nb-upload-text strong { color: #a09888; font-weight: 500; }
+.nb-filename {
+  display: none;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #b5925a;
+  pointer-events: none;
+}
 
-  .nb-preview {
-    display: none;
-    margin-top: 10px;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-  }
+.nb-preview-img {
+  display: none;
+  margin-top: 10px;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  pointer-events: none;
+}
 
-  .nb-preview img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
-  }
+.nb-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-  .nb-preview-label {
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    background: rgba(0,0,0,0.7);
-    color: #b5925a;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 4px;
-  }
+/* ── STYLE BUTTONS ── */
+.nb-style-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
 
-  .nb-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.nb-style-btn {
+  background: #0a0a0a;
+  border: 0.5px solid #2a2820;
+  border-radius: 8px;
+  padding: 10px 8px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+  color: #5a5650;
+  transition: all 0.15s;
+  font-family: 'DM Sans', sans-serif;
+  user-select: none;
+}
 
-  .nb-style-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
+.nb-style-btn:hover { border-color: #b5925a; color: #a09888; }
+.nb-style-btn.selected { border-color: #b5925a; background: #1a1710; color: #b5925a; font-weight: 500; }
 
-  .nb-style-btn {
-    background: #0a0a0a;
-    border: 0.5px solid #2a2820;
-    border-radius: 8px;
-    padding: 10px 8px;
-    text-align: center;
-    cursor: pointer;
-    font-size: 12px;
-    color: #5a5650;
-    transition: all 0.15s;
-    font-family: 'DM Sans', sans-serif;
-  }
+/* hidden input that stores style value */
+#field-style { display: none; }
 
-  .nb-style-btn:hover { border-color: #b5925a; color: #a09888; }
-  .nb-style-btn.selected { border-color: #b5925a; background: #0f0e0b; color: #b5925a; }
+.nb-submit {
+  width: 100%;
+  background: #b5925a;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: #0a0a0a;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 1rem;
+  letter-spacing: 0.5px;
+}
 
-  .nb-submit {
-    width: 100%;
-    background: #b5925a;
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    color: #0a0a0a;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    margin-top: 1rem;
-    letter-spacing: 0.5px;
-  }
+.nb-submit:hover { background: #c9a76d; }
+.nb-submit:active { transform: scale(0.99); }
 
-  .nb-submit:hover { background: #c9a76d; }
-  .nb-submit:active { transform: scale(0.99); }
+.nb-note {
+  font-size: 11px;
+  color: #3d3a33;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
 
-  .nb-note {
-    font-size: 11px;
-    color: #3d3a33;
-    text-align: center;
-    margin-top: 1rem;
-    line-height: 1.6;
-  }
+.nb-required-note {
+  font-size: 11px;
+  color: #3d3a33;
+  text-align: right;
+  margin-bottom: 1.5rem;
+}
 
-  .nb-success {
-    display: none;
-    text-align: center;
-    padding: 3rem 1rem;
-  }
+.nb-error {
+  font-size: 11px;
+  color: #e06060;
+  margin-top: 5px;
+  display: none;
+}
 
-  .nb-success-icon {
-    font-size: 36px;
-    color: #b5925a;
-    margin-bottom: 1rem;
-  }
+.nb-success {
+  display: none;
+  text-align: center;
+  padding: 4rem 1rem;
+}
 
-  .nb-success h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: #f0ede6;
-    margin-bottom: 0.5rem;
-  }
+.nb-success-icon { font-size: 36px; color: #b5925a; margin-bottom: 1rem; }
 
-  .nb-success p {
-    font-size: 13px;
-    color: #7a7168;
-    line-height: 1.6;
-  }
+.nb-success h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #f0ede6;
+  margin-bottom: 0.5rem;
+}
 
-  .nb-required-note {
-    font-size: 11px;
-    color: #3d3a33;
-    text-align: right;
-    margin-bottom: 1.5rem;
-  }
+.nb-success p { font-size: 13px; color: #7a7168; line-height: 1.6; }
+
+@media (max-width: 480px) {
+  .nb-row { grid-template-columns: 1fr; }
+  .nb-style-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
+</head>
+<body>
+<div class="nb-inner">
 
-<div class="nb-wrap">
-  <div class="nb-inner">
-
-    <div class="nb-header">
-      <div class="nb-logo">Estudio Juliano Arcaro</div>
-      <h1 class="nb-title">Formulário de Projeto</h1>
-      <div class="nb-divider"></div>
-      <p class="nb-subtitle">Preencha com cuidado — a qualidade das imagens<br>impacta diretamente no resultado final.</p>
-    </div>
-
-    <div id="form-content">
-
-      <p class="nb-required-note">Campos com <span style="color:#b5925a">*</span> são obrigatórios</p>
-
-      <div class="nb-card">
-        <div class="nb-section-label">01 — Dados de contato</div>
-
-        <div class="nb-row">
-          <div class="nb-field">
-            <label class="nb-label">Nome completo <span>*</span></label>
-            <input class="nb-input" type="text" placeholder="Seu nome" id="field-name" />
-          </div>
-          <div class="nb-field">
-            <label class="nb-label">WhatsApp <span>*</span></label>
-            <input class="nb-input" type="tel" placeholder="(48) 9 0000-0000" id="field-phone" />
-          </div>
-        </div>
-
-        <div class="nb-field">
-          <label class="nb-label">E-mail</label>
-          <input class="nb-input" type="email" placeholder="seu@email.com" id="field-email" />
-        </div>
-      </div>
-
-      <div class="nb-card">
-        <div class="nb-section-label">02 — Sobre o ambiente</div>
-
-        <div class="nb-row">
-          <div class="nb-field">
-            <label class="nb-label">Tipo de ambiente <span>*</span></label>
-            <select class="nb-input" id="field-room">
-              <option value="" disabled selected>Selecione</option>
-              <option>Sala de estar</option>
-              <option>Quarto</option>
-              <option>Cozinha</option>
-              <option>Banheiro</option>
-              <option>Home office</option>
-              <option>Área de lazer</option>
-              <option>Outro</option>
-            </select>
-          </div>
-          <div class="nb-field">
-            <label class="nb-label">Orçamento estimado</label>
-            <select class="nb-input" id="field-budget">
-              <option value="" disabled selected>Selecione</option>
-              <option>Até R$ 5.000</option>
-              <option>R$ 5.000 – R$ 15.000</option>
-              <option>R$ 15.000 – R$ 30.000</option>
-              <option>R$ 30.000 – R$ 60.000</option>
-              <option>Acima de R$ 60.000</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="nb-field">
-          <label class="nb-label">Estilo desejado <span>*</span></label>
-          <div class="nb-style-grid" id="style-grid">
-            <button type="button" class="nb-style-btn" onclick="selectStyle(this)">Moderno</button>
-            <button type="button" class="nb-style-btn" onclick="selectStyle(this)">Minimalista</button>
-            <button type="button" class="nb-style-btn" onclick="selectStyle(this)">Escandinavo</button>
-            <button type="button" class="nb-style-btn" onclick="selectStyle(this)">Industrial</button>
-            <button type="button" class="nb-style-btn" onclick="selectStyle(this)">Clássico</button>
-            <button type="button" class="nb-style-btn" onclick="selectStyle(this)">Japandi</button>
-          </div>
-        </div>
-
-        <div class="nb-field">
-          <label class="nb-label">Observações adicionais</label>
-          <textarea class="nb-input" placeholder="Ex: quero manter o layout, incluir uma planta, cores neutras…" id="field-notes"></textarea>
-        </div>
-      </div>
-
-      <div class="nb-card">
-        <div class="nb-section-label">03 — Imagens</div>
-
-        <div class="nb-field">
-          <label class="nb-label">Foto do ambiente atual <span>*</span></label>
-          <div class="nb-upload-zone" id="zone-room" onclick="document.getElementById('upload-room').click()">
-            <input type="file" id="upload-room" accept="image/*" onchange="handleUpload(this,'zone-room','prev-room','prev-room-img')" />
-            <i class="ti ti-camera nb-upload-icon" aria-hidden="true"></i>
-            <div class="nb-upload-text"><strong>Clique para enviar</strong><br>Foto real do espaço, bem iluminada. JPG ou PNG.</div>
-            <div class="nb-preview" id="prev-room">
-              <img id="prev-room-img" src="" alt="Preview do ambiente" />
-              <div class="nb-preview-label">Ambiente</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="nb-field">
-          <label class="nb-label">Imagem de referência de estilo <span>*</span></label>
-          <div class="nb-upload-zone" id="zone-style" onclick="document.getElementById('upload-style').click()">
-            <input type="file" id="upload-style" accept="image/*" onchange="handleUpload(this,'zone-style','prev-style','prev-style-img')" />
-            <i class="ti ti-photo nb-upload-icon" aria-hidden="true"></i>
-            <div class="nb-upload-text"><strong>Clique para enviar</strong><br>Foto de inspiração de mobiliário e iluminação.</div>
-            <div class="nb-preview" id="prev-style">
-              <img id="prev-style-img" src="" alt="Preview de referência" />
-              <div class="nb-preview-label">Referência</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="nb-field">
-          <label class="nb-label">Referência de cores e texturas <span>*</span></label>
-          <div class="nb-upload-zone" id="zone-color" onclick="document.getElementById('upload-color').click()">
-            <input type="file" id="upload-color" accept="image/*" onchange="handleUpload(this,'zone-color','prev-color','prev-color-img')" />
-            <i class="ti ti-palette nb-upload-icon" aria-hidden="true"></i>
-            <div class="nb-upload-text"><strong>Clique para enviar</strong><br>Paleta, tecidos, revestimentos ou materiais.</div>
-            <div class="nb-preview" id="prev-color">
-              <img id="prev-color-img" src="" alt="Preview de cores" />
-              <div class="nb-preview-label">Cores & Texturas</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button class="nb-submit" onclick="submitForm()">Enviar projeto →</button>
-
-      <p class="nb-note">Após o envio, você receberá uma prévia no seu WhatsApp em até 48h.<br>Seus dados são tratados com total confidencialidade.</p>
-
-    </div>
-
-    <div class="nb-success" id="success-state">
-      <div class="nb-success-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
-      <h3>Projeto recebido!</h3>
-      <p>Obrigado, <span id="success-name"></span>.<br>Em até 48h você receberá uma prévia no seu WhatsApp.</p>
-    </div>
-
+  <div class="nb-header">
+    <div class="nb-logo">Estudio Juliano Arcaro</div>
+    <h1 class="nb-title">Formulário de Projeto</h1>
+    <div class="nb-divider"></div>
+    <p class="nb-subtitle">Preencha com cuidado — a qualidade das imagens<br>impacta diretamente no resultado final.</p>
   </div>
+
+  <!-- FORMULÁRIO -->
+  <form id="main-form" action="https://formspree.io/f/mdajbkgy" method="POST" enctype="multipart/form-data">
+
+    <p class="nb-required-note">Campos com <span style="color:#b5925a">*</span> são obrigatórios</p>
+
+    <!-- CARD 01 -->
+    <div class="nb-card">
+      <div class="nb-section-label">01 — Dados de contato</div>
+
+      <div class="nb-row">
+        <div class="nb-field">
+          <label class="nb-label" for="field-name">Nome completo <span>*</span></label>
+          <input class="nb-input" type="text" id="field-name" name="nome" placeholder="Seu nome" required />
+        </div>
+        <div class="nb-field">
+          <label class="nb-label" for="field-phone">WhatsApp <span>*</span></label>
+          <input class="nb-input" type="tel" id="field-phone" name="whatsapp" placeholder="(48) 9 0000-0000" required />
+        </div>
+      </div>
+
+      <div class="nb-field">
+        <label class="nb-label" for="field-email">E-mail</label>
+        <input class="nb-input" type="email" id="field-email" name="email" placeholder="seu@email.com" />
+      </div>
+    </div>
+
+    <!-- CARD 02 -->
+    <div class="nb-card">
+      <div class="nb-section-label">02 — Sobre o ambiente</div>
+
+      <div class="nb-row">
+        <div class="nb-field">
+          <label class="nb-label" for="field-room">Tipo de ambiente <span>*</span></label>
+          <select class="nb-input" id="field-room" name="ambiente" required>
+            <option value="" disabled selected>Selecione</option>
+            <option>Sala de estar</option>
+            <option>Quarto</option>
+            <option>Cozinha</option>
+            <option>Banheiro</option>
+            <option>Home office</option>
+            <option>Área de lazer</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="nb-field">
+          <label class="nb-label" for="field-budget">Orçamento estimado</label>
+          <select class="nb-input" id="field-budget" name="orcamento">
+            <option value="" disabled selected>Selecione</option>
+            <option>Até R$ 5.000</option>
+            <option>R$ 5.000 – R$ 15.000</option>
+            <option>R$ 15.000 – R$ 30.000</option>
+            <option>R$ 30.000 – R$ 60.000</option>
+            <option>Acima de R$ 60.000</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="nb-field">
+        <label class="nb-label">Estilo desejado <span>*</span></label>
+        <div class="nb-style-grid" id="style-grid">
+          <button type="button" class="nb-style-btn" data-value="Moderno">Moderno</button>
+          <button type="button" class="nb-style-btn" data-value="Minimalista">Minimalista</button>
+          <button type="button" class="nb-style-btn" data-value="Escandinavo">Escandinavo</button>
+          <button type="button" class="nb-style-btn" data-value="Industrial">Industrial</button>
+          <button type="button" class="nb-style-btn" data-value="Clássico">Clássico</button>
+          <button type="button" class="nb-style-btn" data-value="Japandi">Japandi</button>
+        </div>
+        <!-- hidden input real que vai no submit -->
+        <input type="hidden" id="field-style" name="estilo" />
+        <p class="nb-error" id="error-style">Selecione um estilo para continuar.</p>
+      </div>
+
+      <div class="nb-field">
+        <label class="nb-label" for="field-notes">Observações adicionais</label>
+        <textarea class="nb-input" id="field-notes" name="observacoes" placeholder="Ex: quero manter o layout, incluir uma planta, cores neutras…"></textarea>
+      </div>
+    </div>
+
+    <!-- CARD 03 -->
+    <div class="nb-card">
+      <div class="nb-section-label">03 — Imagens</div>
+
+      <!-- Foto do ambiente -->
+      <div class="nb-field">
+        <label class="nb-label">Foto do ambiente atual <span>*</span></label>
+        <label class="nb-upload-label" id="zone-room" for="upload-room">
+          <input type="file" id="upload-room" name="foto_ambiente" accept="image/jpeg,image/png,image/webp" required />
+          <i class="ti ti-camera nb-upload-icon"></i>
+          <div class="nb-upload-text"><strong>Clique para selecionar</strong><br>Foto real do espaço, bem iluminada. JPG ou PNG.</div>
+          <div class="nb-filename" id="name-room"></div>
+          <img class="nb-preview-img" id="prev-room" alt="Preview do ambiente" />
+        </label>
+        <p class="nb-error" id="error-room">Selecione a foto do ambiente.</p>
+      </div>
+
+      <!-- Referência de estilo -->
+      <div class="nb-field">
+        <label class="nb-label">Imagem de referência de estilo <span>*</span></label>
+        <label class="nb-upload-label" id="zone-style" for="upload-style">
+          <input type="file" id="upload-style" name="referencia_estilo" accept="image/jpeg,image/png,image/webp" required />
+          <i class="ti ti-photo nb-upload-icon"></i>
+          <div class="nb-upload-text"><strong>Clique para selecionar</strong><br>Foto de inspiração de mobiliário e iluminação.</div>
+          <div class="nb-filename" id="name-style"></div>
+          <img class="nb-preview-img" id="prev-style" alt="Preview de referência" />
+        </label>
+        <p class="nb-error" id="error-style-img">Selecione a imagem de referência.</p>
+      </div>
+
+      <!-- Referência de cores -->
+      <div class="nb-field">
+        <label class="nb-label">Referência de cores e texturas <span>*</span></label>
+        <label class="nb-upload-label" id="zone-color" for="upload-color">
+          <input type="file" id="upload-color" name="referencia_cores" accept="image/jpeg,image/png,image/webp" required />
+          <i class="ti ti-palette nb-upload-icon"></i>
+          <div class="nb-upload-text"><strong>Clique para selecionar</strong><br>Paleta, tecidos, revestimentos ou materiais.</div>
+          <div class="nb-filename" id="name-color"></div>
+          <img class="nb-preview-img" id="prev-color" alt="Preview de cores" />
+        </label>
+        <p class="nb-error" id="error-color">Selecione a referência de cores.</p>
+      </div>
+    </div>
+
+    <button type="submit" class="nb-submit" id="btn-submit">Enviar projeto →</button>
+
+    <p class="nb-note">
+      Após o envio, você receberá uma prévia no seu WhatsApp em até 48h.<br>
+      Seus dados são tratados com total confidencialidade.
+    </p>
+
+  </form>
+
+  <!-- SUCESSO -->
+  <div class="nb-success" id="success-state">
+    <div class="nb-success-icon"><i class="ti ti-check"></i></div>
+    <h3>Projeto recebido!</h3>
+    <p>Obrigado, <span id="success-name"></span>.<br>Em até 48h você receberá uma prévia no seu WhatsApp.</p>
+  </div>
+
 </div>
 
 <script>
-  function selectStyle(btn) {
-    document.querySelectorAll('.nb-style-btn').forEach(b => b.classList.remove('selected'));
+/* ── ESTILO: botões de seleção ── */
+document.querySelectorAll('.nb-style-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.nb-style-btn').forEach(function(b) {
+      b.classList.remove('selected');
+    });
     btn.classList.add('selected');
-  }
+    document.getElementById('field-style').value = btn.getAttribute('data-value');
+    document.getElementById('error-style').style.display = 'none';
+  });
+});
 
-  function handleUpload(input, zoneId, prevId, imgId) {
-    const file = input.files[0];
+/* ── UPLOAD: preview sem conflito de clique ── */
+function setupUpload(inputId, zoneId, prevImgId, nameId, errorId) {
+  var input = document.getElementById(inputId);
+  var zone  = document.getElementById(zoneId);
+  var prev  = document.getElementById(prevImgId);
+  var name  = document.getElementById(nameId);
+  var err   = document.getElementById(errorId);
+
+  input.addEventListener('change', function() {
+    var file = input.files[0];
     if (!file) return;
-    const zone = document.getElementById(zoneId);
-    const prev = document.getElementById(prevId);
-    const img = document.getElementById(imgId);
-    const reader = new FileReader();
-    reader.onload = e => {
-      img.src = e.target.result;
+
+    /* nome do arquivo */
+    name.textContent = file.name;
+    name.style.display = 'block';
+
+    /* preview */
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      prev.src = e.target.result;
       prev.style.display = 'block';
-      zone.classList.add('has-file');
     };
     reader.readAsDataURL(file);
-  }
 
-  async function submitForm() {
-
-  const name = document.getElementById('field-name').value.trim();
-  const phone = document.getElementById('field-phone').value.trim();
-  const email = document.getElementById('field-email').value.trim();
-  const room = document.getElementById('field-room').value;
-  const budget = document.getElementById('field-budget').value;
-  const notes = document.getElementById('field-notes').value;
-
-  const styleBtn = document.querySelector('.nb-style-btn.selected');
-
-  const roomImg = document.getElementById('upload-room').files[0];
-  const styleImg = document.getElementById('upload-style').files[0];
-  const colorImg = document.getElementById('upload-color').files[0];
-
-  if (!name || !phone || !room || !styleBtn || !roomImg || !styleImg || !colorImg) {
-    alert('Por favor, preencha todos os campos obrigatórios e envie as 3 imagens.');
-    return;
-  }
-
-  const formData = new FormData();
-
-  formData.append('Nome', name);
-  formData.append('WhatsApp', phone);
-  formData.append('Email', email);
-  formData.append('Ambiente', room);
-  formData.append('Orçamento', budget);
-  formData.append('Estilo', styleBtn.innerText);
-  formData.append('Observações', notes);
-
-  formData.append('Foto Ambiente', roomImg);
-  formData.append('Imagem Estilo', styleImg);
-  formData.append('Imagem Cores', colorImg);
-
-  try {
-
-    const response = await fetch('https://formspree.io/f/mdajbkgy', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
-
-    if (response.ok) {
-
-      document.getElementById('form-content').style.display = 'none';
-
-      document.getElementById('success-name').textContent =
-        name.split(' ')[0];
-
-      document.getElementById('success-state').style.display = 'block';
-
-    } else {
-
-      alert('Erro ao enviar formulário.');
-
-    }
-
-  } catch (error) {
-
-    alert('Erro de conexão.');
-
-  }
+    zone.classList.add('has-file');
+    if (err) err.style.display = 'none';
+  });
 }
+
+setupUpload('upload-room',  'zone-room',  'prev-room',  'name-room',  'error-room');
+setupUpload('upload-style', 'zone-style', 'prev-style', 'name-style', 'error-style-img');
+setupUpload('upload-color', 'zone-color', 'prev-color', 'name-color', 'error-color');
+
+/* ── SUBMIT via Formspree (AJAX) ── */
+document.getElementById('main-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  var valid = true;
+
+  /* valida estilo */
+  if (!document.getElementById('field-style').value) {
+    document.getElementById('error-style').style.display = 'block';
+    valid = false;
   }
+
+  if (!valid) return;
+
+  var btn = document.getElementById('btn-submit');
+  btn.textContent = 'Enviando…';
+  btn.disabled = true;
+
+  var formData = new FormData(this);
+
+  fetch(this.action, {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function(res) {
+    if (res.ok) {
+      var nome = document.getElementById('field-name').value.split(' ')[0];
+      document.getElementById('main-form').style.display = 'none';
+      document.getElementById('success-name').textContent = nome;
+      document.getElementById('success-state').style.display = 'block';
+    } else {
+      btn.textContent = 'Enviar projeto →';
+      btn.disabled = false;
+      alert('Ocorreu um erro. Tente novamente.');
+    }
+  })
+  .catch(function() {
+    btn.textContent = 'Enviar projeto →';
+    btn.disabled = false;
+    alert('Erro de conexão. Verifique sua internet e tente novamente.');
+  });
+});
 </script>
+</body>
+</html>
